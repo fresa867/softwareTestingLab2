@@ -1,0 +1,26 @@
+/* app css stylesheet */
+
+.invalidInput {
+  /*background-image: url('http://localhost:8000/img/fat-nerd-fixes-computer.jpg');
+  */
+  background-color: #F04124;
+
+}
+
+.nonangerr {
+  display: none;
+}
+
+
+.nonangerr .error{
+  display: visible;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+#character {
+	text-align:center;
+	font-size: 14.2em;
+}
