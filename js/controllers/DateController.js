@@ -4,21 +4,16 @@ var monthStrings = ['January','February','March',
 					'July','August', 'September',
 					'October','November','December'];
 
-dateApp.factory('theDate', function(){
-	return {
+function DateCtrl ($scope) {
+	var daysInMonth = 31;
+	var chineseCharacter = '';
+
+	$scope.mdate = {
 		year: 2013,
 		month: 12,
 		day: 31
 	};
-});
 
-function DateCtrl ($scope, theDate) {
-
-	var validInput = true;
-	var daysInMonth = 31;
-	var chineseCharacter = '';
-
-	$scope.mdate = theDate;
 	$scope.getTomorrow = function (year, month, day) {
 		//var tomorrow = $scope.date.day;
 		//return $scope.mdate;
@@ -31,10 +26,10 @@ function DateCtrl ($scope, theDate) {
 			|| $scope.enterDate.day.$error.pattern || $scope.enterDate.year.$error.maxlength 
 			) {
 			return {
-				"date" : " ",
-				"day": " ",
-				"chineseYear": " ",
-				"chineseCharacter": " "
+				"date" : "__ - __ - __",
+				"day": "Noday",
+				"chineseYear": "Please enter a date.",
+				"chineseCharacter": "你好"
 			};
 		}
 		else{
@@ -101,15 +96,6 @@ function DateCtrl ($scope, theDate) {
 		return tomorrow;
 	};
 
-	$scope.invalidInputWarning	= function(year, month, day){
-		if ($scope.checkDay(day) === "error" || $scope.checkMonth(month) === "error" || $scope.checkYear(year) === "error") {
-			return "invalidInput";
-		}
-		else {
-			return "";
-		}
-	};
-
 	$scope.checkYear = function(year) {
 		if (year < 1600|| year > 9999) {
 			return "error";
@@ -120,7 +106,6 @@ function DateCtrl ($scope, theDate) {
 
 	$scope.checkMonth = function(month) {
 		if (month < 1 || month > 12) {
-			validInput = false;
 			return "error";
 		} else {
 			return "";
@@ -130,7 +115,6 @@ function DateCtrl ($scope, theDate) {
 	$scope.checkDay = function(day) {
 
 		if (day < 1 || day > daysInMonth) {
-			validInput = false;
 			return "error";
 		} else {
 			return "";
@@ -139,14 +123,6 @@ function DateCtrl ($scope, theDate) {
 
 	$scope.numberOfDaysInMonth = function () {
 		return daysInMonth;
-	};
-
-	$scope.checkInput = function(ip){
-		if (typeof ip === 'number' && ip%1 === 0 ) {
-			return "";
-		} else {
-			return "must be an integer";
-		}
 	};
 
 	$scope.getDayOfWeek = function(year, month, day) { // Function getting the next day
@@ -251,6 +227,18 @@ function DateCtrl ($scope, theDate) {
 
 	$scope.chineseCharacter = function(){
 		return chineseCharacter;
+	};
+
+	$scope.getSeason =  function(month) {
+		if (month <= 2 || month == 12) {
+			return "winter";
+		} else if (month >= 3 && month <= 6){
+			return "spring";
+		} else if (month >= 7 && month <= 9){
+			return "summer";
+		} else {
+			return "autumn";
+		}
 	};
 
 }

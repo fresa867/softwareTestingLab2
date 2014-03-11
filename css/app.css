@@ -24,3 +24,54 @@ h1, h2 {
 	text-align:center;
 	font-size: 14.2em;
 }
+
+#winter{
+	/*244,247,247, 196,237,228*/
+	background-image: -o-linear-gradient(bottom, rgb(244,247,247) 24%, rgb(196,237,228) 62%);
+	background-image: -moz-linear-gradient(bottom, rgb(244,247,247) 24%, rgb(196,237,228) 62%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgb(244,247,247)), color-stop(0.62, rgb(196,237,228)));
+	background-image: -webkit-linear-gradient(bottom, rgb(244,247,247) 24%, rgb(196,237,228) 62%);
+	background-image: -ms-linear-gradient(bottom, rgb(244,247,247) 24%, rgb(196,237,228) 62%);
+	background-image: linear-gradient(bottom, rgb(244,247,247) 24%, rgb(196,237,228) 62%);
+}
+
+#summer{
+	/*255,78,80, 249,212,35*/
+	background-image: -o-linear-gradient(bottom, rgb(255,78,80) 24%, rgb(249,212,35) 62%);
+	background-image: -moz-linear-gradient(bottom, rgb(255,78,80) 24%, rgb(249,212,35) 62%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgb(255,78,80)), color-stop(0.62, rgb(249,212,35)));
+	background-image: -webkit-linear-gradient(bottom, rgb(255,78,80) 24%, rgb(249,212,35) 62%);
+	background-image: -ms-linear-gradient(bottom, rgb(255,78,80) 24%, rgb(249,212,35) 62%);
+	background-image: linear-gradient(bottom, rgb(255,78,80) 24%, rgb(249,212,35) 62%);
+}
+
+#spring{
+	/*195,255,104, 78,150,137*/
+	background-image: -o-linear-gradient(bottom, rgb(195,255,104) 24%, rgb(78,150,137) 62%);
+	background-image: -moz-linear-gradient(bottom, rgb(195,255,104) 24%, rgb(78,150,137) 62%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgb(195,255,104)), color-stop(0.62, rgb(78,150,137)));
+	background-image: -webkit-linear-gradient(bottom, rgb(195,255,104) 24%, rgb(78,150,137) 62%);
+	background-image: -ms-linear-gradient(bottom, rgb(195,255,104) 24%, rgb(78,150,137) 62%);
+	background-image: linear-gradient(bottom, rgb(195,255,104) 24%, rgb(78,150,137) 62%);
+}
+
+#autumn{
+	/*191,77,40, 101,86,67*/
+	background-image: -o-linear-gradient(bottom, rgb(191,77,40) 24%, rgb(101,86,67) 62%);
+	background-image: -moz-linear-gradient(bottom, rgb(191,77,40) 24%, rgb(101,86,67) 62%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgb(191,77,40)), color-stop(0.62, rgb(101,86,67)));
+	background-image: -webkit-linear-gradient(bottom, rgb(191,77,40) 24%, rgb(101,86,67) 62%);
+	background-image: -ms-linear-gradient(bottom, rgb(191,77,40) 24%, rgb(101,86,67) 62%);
+	background-image: linear-gradient(bottom, rgb(191,77,40) 24%, rgb(101,86,67) 62%);
+}
+
+form {
+	margin-bottom: 30%;
+}
+
+@media only screen 
+and (max-width : 320px) {
+	#character{
+		font-size: 10px;	
+	}
+} 
