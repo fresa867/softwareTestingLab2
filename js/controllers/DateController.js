@@ -23,11 +23,7 @@ function DateCtrl ($scope, theDate) {
 		//var tomorrow = $scope.date.day;
 		//return $scope.mdate;
 		var Tomorrow = $scope.calculateTomorrow(year,month,day);
-
-		console.log("Error is "+$scope.enterDate.year.$error.maxlength);
-		if (typeof Tomorrow.year ==='undefined' || typeof Tomorrow.month ==='undefined' || typeof Tomorrow.day ==='undefined') {
-			console.log(Tomorrow + "This aint working");
-		};
+		console.log(Tomorrow);
 		// 
 		if ($scope.checkDay(day) === "error" || $scope.checkMonth(month) === "error" 
 			|| $scope.checkYear(year) === "error" || $scope.enterDate.year.$error.minlength 
@@ -188,70 +184,73 @@ function DateCtrl ($scope, theDate) {
 	return dayOfWeek;
     };
 
-    $scope.getChineseCalendarDate = function(year){
+    $scope.getChineseCalendarDate = function(theYear){
 
-    	//Algorithm from http://www.hermetic.ch/cal_stud/ch_year.htm
+		//Algorithm from http://www.hermetic.ch/cal_stud/ch_year.htm
 
-    	//var i = 1983%2 ? (1983+6)%10  - 1: (1983+6)%10;
+		//var i = 1983%2 ? (1983+6)%10  - 1: (1983+6)%10;
 
-    	///var i = year%2 ? (year+6)%10  - 1: (year+6)%10;
+		///var i = theYear%2 ? (theYear+6)%10  - 1: (theYear+6)%10;
 
-    	console.log(year);
-  
-    	var i = 0;
+		theYear = parseInt(theYear);
+		console.log(theYear);
 
-    	if (year%2) {
-    		i = year + 6;
-    		i = i%10;
-    		console.log('I is '+i);
-    	} else{
-    		i = year + 6;
-    		i = i%10;
-    		console.log('I is '+i);
-    		i--;
-    	}
+		var i = 0;
+		var a = 0;
+		var e = 0;
+
+		if (theYear%2 === 0) {
+			i = theYear + 6;
+			i = i%10;
+			console.log('I is '+i);
+		} else{
+			i = theYear + 6;
+			i = i%10;
+			i--;
+			console.log('I is '+i);		
+		}
 
 
-    	var e = i/2;
-    	var a = year +8;
-    	a = a % 12;
+		e = i/2;
+		a = theYear +8;
+		a = a % 12;
 
-    	//var k = 0;
+		//var k = 0;
 
-    	/*while(60*k < year + 2756)
-    	{
-    		k++;
-    	}*/
+		/*while(60*k < theYear + 2756)
+		{
+			k++;
+		}*/
 
-    	var element = ['Wood','Fire','Earth','Metal','Water'];
-    	var animal = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Sheep', 'Monkey', 'Rooster' ,'Dog','Pig'];
-    	//var animalChars = ["鼠"，"牛"，"虎"，"兔"，"龍"，"蛇"，"馬"，"羊"，"猴子"，"網格"，"狗"，"豬"];
-    	//chineseCharacter = animalChars[a];
-    	//chineseCharacter = 'hello';
+		var element = ['Wood','Fire','Earth','Metal','Water'];
+		var animal = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Sheep', 'Monkey', 'Rooster' ,'Dog','Pig'];
+		//var animalChars = ["鼠"，"牛"，"虎"，"兔"，"龍"，"蛇"，"馬"，"羊"，"猴子"，"網格"，"狗"，"豬"];
+		//chineseCharacter = animalChars[a];
+		//chineseCharacter = 'hello';
 
-    	console.log('A is ' + a+ '\n E is' + e);
+		console.log('A is ' + a+ '\n E is' + e);
 
-    	var animalChars = new Array();
-    	animalChars[0] = {value:"鼠"};
-    	animalChars[1] = {value:"牛"};
-    	animalChars[2] = {value:"虎"};
-    	animalChars[3] = {value:"兔"};
-    	animalChars[4] = {value:"龍"};
-    	animalChars[5] = {value:"蛇"};
-    	animalChars[6] = {value:"馬"};
-    	animalChars[7] = {value:"羊"};
-    	animalChars[8] = {value:"猴子"};
-    	animalChars[9] = {value:"網格"};
-    	animalChars[10] = {value:"狗"};
-    	animalChars[11] = {value:"豬"};
+		var animalChars = [];
+		animalChars[0] = {value:"鼠"};
+		animalChars[1] = {value:"牛"};
+		animalChars[2] = {value:"虎"};
+		animalChars[3] = {value:"兔"};
+		animalChars[4] = {value:"龍"};
+		animalChars[5] = {value:"蛇"};
+		animalChars[6] = {value:"馬"};
+		animalChars[7] = {value:"羊"};
+		animalChars[8] = {value:"猴子"};
+		animalChars[9] = {value:"網格"};
+		animalChars[10] = {value:"狗"};
+		animalChars[11] = {value:"豬"};
 
-    	chineseCharacter = animalChars[a].value;
+		chineseCharacter = animalChars[a].value;
 
-    	return element[e] + ' ' + animal[a];
-    };
+		return element[e] + ' ' + animal[a];
+	};
 
-    $scope.chineseCharacter = function(){
-    	return chineseCharacter;
-    };
+	$scope.chineseCharacter = function(){
+		return chineseCharacter;
+	};
 
 }
