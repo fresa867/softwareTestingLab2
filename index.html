@@ -29,8 +29,6 @@
 						<div class="large-4 medium-4 columns">
 						<label class="{{checkYear(mdate.year)}}">Year
 						<input name="year" class="{{checkYear(mdate.year)}}" type="text" ng-model="mdate.year" ng-minlength="4" ng-maxlength="4" ng-pattern="/^[0-9]*$/">
-						<!--<input name="year" class="{{checkYear(mdate.year)}}" type="text" ng-model="mdate.year" ng-pattern="/^[0-9]{1,4}$/"> 
-						</label>-->
 						<small class="error" ng-show="enterDate.year.$error.pattern">The input must be an integer (between 1600 and 9999)</small>
 						<small class="error" ng-show="enterDate.year.$error.minlength">The input must not be shorter than four digits</small>
 						<small class="error" ng-show="enterDate.year.$error.maxlength">The input must not be longer than four digits</small>
